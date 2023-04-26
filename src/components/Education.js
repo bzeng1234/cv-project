@@ -1,18 +1,26 @@
 import React, {Component} from "react";
-import Button from "./Button";
 
 class Education extends Component {
-    render() {
-        return (<>
-                <h2 className="header">Education</h2>
-                <form className="education-form" autocomplete="off">
-                    <input className="school-name" type="text" id="school-name" name="school-name" placeholder="school name"></input>
-                    <input className="major" type="text" id="major" name="major" placeholder="major"></input>
-                    <input className="grad-year" type="number" id="grad-year" name="grad-year" placeholder="graduation year" min='1900'></input>
-                    <Button />
-                </form>
-                </>);
+
+    handleInformation() {
+        let result = this.props.education.map((element,index) => {
+           return(
+            <div key={index} className="education-info">
+                <div className="education-name">{element.school}</div>
+                <div className="education-year">{element.gradYear}</div>
+                <div className="education-major">{element.major}</div>
+            </div>
+           ); 
+        });
+        return result;
     };
-}
+
+    render() {
+        return (<div className="education-info-container">
+            <h3 className="resume-header">Education</h3>
+            {this.handleInformation()}
+            </div>);
+    };
+};
 
 export default Education;

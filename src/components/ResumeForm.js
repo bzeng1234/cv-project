@@ -1,14 +1,16 @@
 import React, {Component} from "react";
-import General from "./General";
-import Education from "./Education";
-import Experience from "./Experience";
+import GeneralForm from "./GeneralForm";
+import EducationForm from "./EducationForm";
+import ExperienceForm from "./ExperienceForm";
 
 class ResumeForm extends Component {
+    
     render() {
+        let {handleGeneralInfo, handleEducationInfo, handleExperienceInfo} = this.props;
         return <div className="resume-form">
-            <General/>
-            <Education/>
-            <Experience/>
+            <GeneralForm handleGeneralInfo={handleGeneralInfo}/>
+            <EducationForm handleEducationInfo={handleEducationInfo}/>
+            <ExperienceForm handleExperienceInfo={handleExperienceInfo}/>
         </div>;
     };
 }

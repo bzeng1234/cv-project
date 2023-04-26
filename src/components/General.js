@@ -1,18 +1,26 @@
 import React, {Component} from "react";
-import Button from "./Button";
 
 class General extends Component {
-    render() {
-        return (<>
-            <h2 className="header">General Information</h2>
-            <form className="general-info-form" autocomplete="off">
-            <input className="name" type="text" id="name" name="name" placeholder="full name"></input>
-            <input className="email" type="email" id="email" name="email" placeholder="email"></input>
-            <input className="number" type="text" id="number" name="number" placeholder="phone number"></input>
-            <Button />
-        </form>
-        </>);
+
+    handleInformation() {
+        let result = this.props.general.map((element,index) => {
+           return(
+            <div key={index} className="general-info">
+                <div className="general-name">{element.name}</div>
+                <div className="general-email">{element.email}</div>
+                <div className="general-number">{element.phoneNumber}</div>
+            </div>
+           ); 
+        });
+        return result;
     };
-}
+
+    render() {
+        return (<div className="general-info-container">
+            <h3 className="resume-header">Contact Information</h3>
+            {this.handleInformation()}
+            </div>);
+    };
+};
 
 export default General;

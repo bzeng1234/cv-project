@@ -1,0 +1,55 @@
+.resume {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    min-height: 700px;
+    padding: 10px 10px;
+}
+
+.general-info-container,
+.education-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.general-info-container,
+.education-info-container,
+.experience-info-container {
+    border-bottom: 1px solid black;
+}
+
+.resume-header {
+    margin: 5px 0px;
+    text-decoration: underline;
+}
+
+.general-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.general-email {
+    text-align: center;
+}
+
+.general-name,
+.education-name,
+.education-major,
+.experience-company,
+.experience-startdate {
+    text-align: left;
+}
+
+.general-number,
+.education-year,
+.experience-position,
+.experience-enddate {
+    text-align: right;
+}
+
+.education-info,
+.experience-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 5px;
+}

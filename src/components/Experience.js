@@ -1,22 +1,28 @@
 import React, {Component} from "react";
-import Button from "./Button";
 
 class Experience extends Component {
-    render() {
-        return (<>
-        <h2 className="header">Experience</h2>
-        <form className="experience-form" autocomplete="off">
-            <input className="company-name" type="text" id="company-name" name="company-name" placeholder="company name"></input>
-            <input className="position" type="text" id="position" name="position" placeholder="position"></input>
-            <h4 className="header">Start Date</h4>
-            <h4 className="header">End Date</h4>
-            <input className="start-date" type="date" id="start-date" name="start-date"></input>
-            <input className="end-date" type="date" id="end-date" name="end-date"></input>
-            <textarea className="job-description" id="job-description" name="job-description"></textarea>
-            <Button />
-        </form>
-        </>);
+
+    handleInformation() {
+        let result = this.props.experience.map((element,index) => {
+           return(
+            <div key={index} className="experience-info">
+                <div className="experience-company">{element.company}</div>
+                <div className="experience-position">{element.position}</div>
+                <div className="experience-startdate">{element.startDate}</div>
+                <div className="experience-enddate">{element.endDate}</div>
+                <div className="experience-responsibilities">{element.responsibilities}</div>
+            </div>
+           ); 
+        });
+        return result;
     };
-}
+
+    render() {
+        return (<div className="experience-info-container">
+            <h3 className="resume-header">Professional Experience</h3>
+            {this.handleInformation()}
+            </div>);
+    };
+};
 
 export default Experience;
